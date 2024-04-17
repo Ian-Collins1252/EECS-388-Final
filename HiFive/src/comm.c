@@ -13,15 +13,19 @@ void auto_brake(int devid)
 
 int read_from_pi(int devid)
 {
+    char ser_bytes[20];
+    int final;
+    if (ser_isready(devid)) {
+
+        ser_readline(devid, 20, ser_bytes);
+
+        sscanf(ser_bytes, "%d", &final);
+        return final;
     // Task-2: 
     // You code goes here (Use Lab 09 for reference)
     // After performing Task-2 at dnn.py code, modify this part to read angle values from Raspberry Pi.
-
-    int ser_bytes; //Define container for serial stream from PI
-    if (ser_isready(devid)) { //Checks if UART port from PI is ready by checking interupt signal
-        sscanf(ser_read(devid), "%d", &ser_bytes); //Writes serial stream to ser_bytes as float
     }
-    return ser_bytes; //Returns predicted angle from pi as int
+    return 0;
 }
 
 void steering(int gpio, int pos)
