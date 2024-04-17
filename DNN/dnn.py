@@ -12,7 +12,12 @@ import math
 import numpy as np
 import serial
 
-ser1 = serial.Serial("/dev/ttyAMA1", 115200)
+ser = None
+while ser == None:
+	try:
+		ser = serial.Serial("/dev/ttyAMA1", 115200)
+	except:
+		pass
 
 # Radian <-> Degree conversion functions
 def deg2rad(deg):
@@ -91,9 +96,9 @@ while(1):
 		# prediction from the model. This is so that
 		# the HiFive can run the other functions in between
 		if count%4 == 0:
-			pass
-			#Your code here.
-
+			deg = str(int(deg)) + "\n"
+			ser.write(bytes(deg))
+			print(deg)
 		
         
         
