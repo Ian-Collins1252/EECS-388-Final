@@ -91,11 +91,7 @@ while(1):
 		# prediction from the model. This is so that
 		# the HiFive can run the other functions in between
 		if count%4 == 0:
-			pass
-			#Your code here.
-
-		
-        
+			ser1.write(deg)
         
 		pred_end   = time.time()
 

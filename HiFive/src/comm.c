@@ -76,16 +76,16 @@ int main()
             // You are welcome to pass the angle values directly to the steering function.
             // If the servo function is written correctly, it should still work,
             // only the movements of the servo will be more subtle
-            // if(angle>0){
-            //     steering(gpio, 180);
-            // }
-            // else {
-            //     steering(gpio,0);
-            // }
+            if(angle>0){
+                steering(gpio, 180);
+            }
+            else {
+                steering(gpio,0);
+            }
             
             // Uncomment the line below to see the actual angles on the servo.
             // Remember to comment out the if-else statement above!
-            steering(gpio, angle);
+            // steering(gpio, angle);
         }
 
     }
